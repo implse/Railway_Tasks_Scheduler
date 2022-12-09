@@ -94,27 +94,25 @@ def job():
     connect.close()
 
 
-schedule.every().monday.at("12:30").do(job)
-schedule.every().monday.at("19:00").do(job)
+schedule.every().monday.at(os.getenv('LUNCH')).do(job)
+schedule.every().monday.at(os.getenv('DINNER')).do(job)
 
-schedule.every().tuesday.at("12:30").do(job)
-schedule.every().tuesday.at("19:00").do(job)
+schedule.every().tuesday.at(os.getenv('LUNCH')).do(job)
+schedule.every().tuesday.at(os.getenv('DINNER')).do(job)
 
-schedule.every().wednesday.at("12:30").do(job)
-schedule.every().wednasday.at("19:00").do(job)
+schedule.every().wednesday.at(os.getenv('LUNCH')).do(job)
+schedule.every().wednasday.at(os.getenv('DINNER')).do(job)
 
-schedule.every().thursday.at("12:30").do(job)
-schedule.every().thursday.at("19:00").do(job)
+schedule.every().thursday.at(os.getenv('LUNCH')).do(job)
+schedule.every().thursday.at(os.getenv('DINNER')).do(job)
 
-schedule.every().friday.at("12:30").do(job)
-schedule.every().friday.at("19:00").do(job)
+schedule.every().friday.at(os.getenv('LUNCH')).do(job)
+schedule.every().friday.at(os.getenv('DINNER')).do(job)
 
-schedule.every().saturday.at("12:30").do(job)
-schedule.every().saturday.at("19:30").do(job)
+schedule.every().saturday.at(os.getenv('LUNCH')).do(job)
+schedule.every().saturday.at(os.getenv('DINNER')).do(job)
 
 
 while True:
     schedule.run_pending()
     time.sleep(1)
-
-"""
