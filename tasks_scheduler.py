@@ -95,22 +95,22 @@ def job():
     connect.close()
 
 
-schedule.every().monday.at('17:20').do(job)
+schedule.every().monday.at('16:35').do(job)
 schedule.every().monday.at('19:30').do(job)
 
-schedule.every().tuesday.at('17:20').do(job)
+schedule.every().tuesday.at('16:35').do(job)
 schedule.every().tuesday.at('19:30').do(job)
 
-schedule.every().wednesday.at('17:20').do(job)
+schedule.every().wednesday.at('16:35').do(job)
 schedule.every().wednesday.at('19:30').do(job)
 
-schedule.every().thursday.at('17:20').do(job)
+schedule.every().thursday.at('16:35').do(job)
 schedule.every().thursday.at('19:30').do(job)
 
-schedule.every().friday.at('17:20').do(job)
+schedule.every().friday.at('16:35').do(job)
 schedule.every().friday.at('19:30').do(job)
 
-schedule.every().saturday.at('17:20').do(job)
+schedule.every().saturday.at('16:35').do(job)
 schedule.every().saturday.at('19:30').do(job)
 
 
