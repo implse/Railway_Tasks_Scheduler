@@ -46,7 +46,7 @@ def job():
         })
 
     # Order count
-    COUNTER = random.randint(5)
+    COUNTER = random.randint(0, 5)
 
     for _ in range(COUNTER):
         # Get a random available finger foods
@@ -94,25 +94,28 @@ def job():
     connect.close()
 
 
-schedule.every().monday.at(os.getenv('LUNCH')).do(job)
-schedule.every().monday.at(os.getenv('DINNER')).do(job)
+# schedule.every().monday.at(os.getenv('LUNCH')).do(job)
+# schedule.every().monday.at(os.getenv('DINNER')).do(job)
 
-schedule.every().tuesday.at(os.getenv('LUNCH')).do(job)
-schedule.every().tuesday.at(os.getenv('DINNER')).do(job)
+# schedule.every().tuesday.at(os.getenv('LUNCH')).do(job)
+# schedule.every().tuesday.at(os.getenv('DINNER')).do(job)
 
-schedule.every().wednesday.at(os.getenv('LUNCH')).do(job)
-schedule.every().wednasday.at(os.getenv('DINNER')).do(job)
+# schedule.every().wednesday.at(os.getenv('LUNCH')).do(job)
+# schedule.every().wednesday.at(os.getenv('DINNER')).do(job)
 
-schedule.every().thursday.at(os.getenv('LUNCH')).do(job)
-schedule.every().thursday.at(os.getenv('DINNER')).do(job)
+# schedule.every().thursday.at(os.getenv('LUNCH')).do(job)
+# schedule.every().thursday.at(os.getenv('DINNER')).do(job)
 
-schedule.every().friday.at(os.getenv('LUNCH')).do(job)
-schedule.every().friday.at(os.getenv('DINNER')).do(job)
+# schedule.every().friday.at(os.getenv('LUNCH')).do(job)
+# schedule.every().friday.at(os.getenv('DINNER')).do(job)
 
-schedule.every().saturday.at(os.getenv('LUNCH')).do(job)
-schedule.every().saturday.at(os.getenv('DINNER')).do(job)
+# schedule.every().saturday.at(os.getenv('LUNCH')).do(job)
+# schedule.every().saturday.at(os.getenv('DINNER')).do(job)
+
+print(os.getenv('LUNCH'))
+print(os.getenv('DINNER'))
 
 
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+# while True:
+#     schedule.run_pending()
+#     time.sleep(1)
