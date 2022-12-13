@@ -95,26 +95,26 @@ def job():
     connect.close()
 
 
-schedule.every().monday.at('16:55').do(job)
+schedule.every().monday.at('12:30').do(job)
 schedule.every().monday.at('19:30').do(job)
 
-schedule.every().tuesday.at('16:55').do(job)
+schedule.every().tuesday.at('12:30').do(job)
 schedule.every().tuesday.at('19:30').do(job)
 
-schedule.every().wednesday.at('16:55').do(job)
+schedule.every().wednesday.at('12:30').do(job)
 schedule.every().wednesday.at('19:30').do(job)
 
-schedule.every().thursday.at('16:55').do(job)
+schedule.every().thursday.at('12:30').do(job)
 schedule.every().thursday.at('19:30').do(job)
 
-schedule.every().friday.at('16:55').do(job)
+schedule.every().friday.at('12:30').do(job)
 schedule.every().friday.at('19:30').do(job)
 
-schedule.every().saturday.at('16:55').do(job)
+schedule.every().saturday.at('12:30').do(job)
 schedule.every().saturday.at('19:30').do(job)
 
 
 while True:
     schedule.run_pending()
     print(f'Running task scheduler: {datetime.datetime.now()}')
-    time.sleep(60)
+    time.sleep(3600)
