@@ -94,23 +94,23 @@ def job():
     connect.close()
 
 
-schedule.every().monday.at(os.getenv('17:00')).do(job)
-schedule.every().monday.at(os.getenv('19:30')).do(job)
+schedule.every().monday.at('17:05').do(job)
+schedule.every().monday.at('19:30').do(job)
 
-schedule.every().tuesday.at(os.getenv('17:00')).do(job)
-schedule.every().tuesday.at(os.getenv('19:30')).do(job)
+schedule.every().tuesday.at('17:05').do(job)
+schedule.every().tuesday.at('19:30').do(job)
 
-schedule.every().wednesday.at(os.getenv('17:00')).do(job)
-schedule.every().wednesday.at(os.getenv('19:30')).do(job)
+schedule.every().wednesday.at('17:05').do(job)
+schedule.every().wednesday.at('19:30').do(job)
 
-schedule.every().thursday.at(os.getenv('17:00')).do(job)
-schedule.every().thursday.at(os.getenv('19:30')).do(job)
+schedule.every().thursday.at('17:05').do(job)
+schedule.every().thursday.at('19:30').do(job)
 
-schedule.every().friday.at(os.getenv('17:00')).do(job)
-schedule.every().friday.at(os.getenv('19:30')).do(job)
+schedule.every().friday.at('17:05').do(job)
+schedule.every().friday.at('19:30').do(job)
 
-schedule.every().saturday.at(os.getenv('17:00')).do(job)
-schedule.every().saturday.at(os.getenv('19:30')).do(job)
+schedule.every().saturday.at('17:05').do(job)
+schedule.every().saturday.at('19:30').do(job)
 
 
 while True:
