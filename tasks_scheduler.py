@@ -4,6 +4,7 @@ import schedule
 import psycopg2 as psy
 import random
 import time
+import datetime
 from dotenv import load_dotenv, find_dotenv
 import os
 
@@ -94,25 +95,26 @@ def job():
     connect.close()
 
 
-schedule.every().monday.at('17:05').do(job)
+schedule.every().monday.at('17:20').do(job)
 schedule.every().monday.at('19:30').do(job)
 
-schedule.every().tuesday.at('17:05').do(job)
+schedule.every().tuesday.at('17:20').do(job)
 schedule.every().tuesday.at('19:30').do(job)
 
-schedule.every().wednesday.at('17:05').do(job)
+schedule.every().wednesday.at('17:20').do(job)
 schedule.every().wednesday.at('19:30').do(job)
 
-schedule.every().thursday.at('17:05').do(job)
+schedule.every().thursday.at('17:20').do(job)
 schedule.every().thursday.at('19:30').do(job)
 
-schedule.every().friday.at('17:05').do(job)
+schedule.every().friday.at('17:20').do(job)
 schedule.every().friday.at('19:30').do(job)
 
-schedule.every().saturday.at('17:05').do(job)
+schedule.every().saturday.at('17:20').do(job)
 schedule.every().saturday.at('19:30').do(job)
 
 
 while True:
     schedule.run_pending()
-    time.sleep(1)
+    print(f'Running task scheduler: {datetime.datetime.now()}')
+    time.sleep(60)
