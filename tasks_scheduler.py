@@ -127,7 +127,7 @@ while True:
         print(f'Next service is lunch in {tdelta}')
 
     if int(t.hour) <= int(lunch[:2]) or int(t.hour) >= int(dinner[:2]):
-        tdelta = datetime.datetime.strptime(dinner, FMT) - datetime.datetime.strptime(current_time, FMT)
+        tdelta = datetime.datetime.strptime(dinner, '%H:%M:%S') - datetime.datetime.strptime(current_time, '%H:%M:%S')
         print(f'next service is dinner in {tdelta}')
 
     time.sleep(3600)
