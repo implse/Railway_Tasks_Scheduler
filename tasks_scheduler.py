@@ -94,6 +94,8 @@ def job():
 
     connect.close()
 
+lunch = '12:30:00'
+dinner = '19:30:00'
 
 schedule.every().monday.at('12:30').do(job)
 schedule.every().monday.at('19:30').do(job)
@@ -116,5 +118,16 @@ schedule.every().saturday.at('19:30').do(job)
 
 while True:
     schedule.run_pending()
+
+    t = datetime.datetime.now()
     print(f'Running task scheduler: {datetime.datetime.now()}')
+
+    if int(t.hour) <= lunch_hour or int(t.hour) >= dinner_hour:
+        tdelta = datetime.datetime.strptime(lunch, FMT) - datetime.datetime.strptime(current_time, FMT)
+        print(f'Next service is lunch in {tdelta}')
+
+    if int(t.hour) >= lunch_hour and int(t.hour) <= dinner_hour:
+        tdelta = datetime.datetime.strptime(dinner, FMT) - datetime.datetime.strptime(current_time, FMT)
+        print(f'next service is dinner in {tdelta}')
+
     time.sleep(3600)
