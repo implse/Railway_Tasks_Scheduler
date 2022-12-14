@@ -124,7 +124,7 @@ while True:
     print(f'Running task scheduler: {datetime.datetime.now()}')
 
     if int(t.hour) >= int(lunch[:2]) and int(t.hour) <= int(dinner[:2]):
-        tdelta = datetime.datetime.strptime(dinner, FMT) - datetime.datetime.strptime(f'{t.hour}:{t.minute}:00', fmt)
+        tdelta = datetime.datetime.strptime(dinner, fmt) - datetime.datetime.strptime(f'{t.hour}:{t.minute}:00', fmt)
         print(f'Next service is dinner in {tdelta}')
 
     if int(t.hour) <= int(lunch[:2]) or int(t.hour) >= int(dinner[:2]):
