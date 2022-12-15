@@ -95,26 +95,27 @@ def job():
     connect.close()
 
 lunch = '12:30:00'
-dinner = '21:05:00'
+dinner = '21:15:00'
 
-schedule.every().monday.at(lunch).do(job)
-schedule.every().monday.at(dinner).do(job)
+schedule.every().monday.at('12:30:00').do(job)
+schedule.every().monday.at('21:15:00').do(job)
 
-schedule.every().tuesday.at(lunch).do(job)
-schedule.every().tuesday.at(dinner).do(job)
+schedule.every().tuesday.at('12:30:00').do(job)
+schedule.every().tuesday.at('21:15:00').do(job)
 
-schedule.every().wednesday.at(lunch).do(job)
-schedule.every().wednesday.at(dinner).do(job)
+schedule.every().wednesday.at('12:30:00').do(job)
+schedule.every().wednesday.at('21:15:00').do(job)
 
-schedule.every().thursday.at(lunch).do(job)
-schedule.every().thursday.at(dinner).do(job)
+schedule.every().thursday.at('12:30:00').do(job)
+schedule.every().thursday.at('21:15:00').do(job)
 
-schedule.every().friday.at(lunch).do(job)
-schedule.every().friday.at(dinner).do(job)
+schedule.every().friday.at('12:30:00').do(job)
+schedule.every().friday.at('21:15:00').do(job)
 
-schedule.every().saturday.at(lunch).do(job)
-schedule.every().saturday.at(dinner).do(job)
+schedule.every().saturday.at('12:30:00').do(job)
+schedule.every().saturday.at('21:15:00').do(job)
 
 while True:
+    print(datetime.datetime.now())
     schedule.run_pending()
     time.sleep(1)
