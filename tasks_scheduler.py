@@ -95,7 +95,7 @@ def job():
     connect.close()
 
 lunch = '12:30:00'
-dinner = '19:30:00'
+dinner = '21:05:00'
 
 schedule.every().monday.at(lunch).do(job)
 schedule.every().monday.at(dinner).do(job)
@@ -117,21 +117,4 @@ schedule.every().saturday.at(dinner).do(job)
 
 while True:
     schedule.run_pending()
-
-    t = datetime.datetime.now()
-    lunch = t.replace(hour=12, minute=30, second=0, microsecond=0)
-    dinner = t.replace(hour=19, minute=30, second=0, microsecond=0)
-
-    print(f'Running task scheduler: {datetime.datetime.now()}')
-
-    # Lunch delta
-    if t <= lunch and t >= dinner - datetime.timedelta(days=1):
-        tdelta = lunch - t
-        print(f'Next service is lunch in {tdelta}')
-
-    # Dinner delta
-    if t >= lunch and t <= dinner:
-        tdelta = dinner - t
-        print(f'Next service is dinner in {tdelta}')
-
-    time.sleep(3600)
+    time.sleep(1)
