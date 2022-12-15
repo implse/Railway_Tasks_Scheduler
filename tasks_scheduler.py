@@ -96,39 +96,42 @@ def job():
 
 lunch = '12:30:00'
 dinner = '19:30:00'
-fmt = '%H:%M:%S'
 
-schedule.every().monday.at('12:30').do(job)
-schedule.every().monday.at('19:30').do(job)
+schedule.every().monday.at(lunch).do(job)
+schedule.every().monday.at(dinner).do(job)
 
-schedule.every().tuesday.at('12:30').do(job)
-schedule.every().tuesday.at('19:30').do(job)
+schedule.every().tuesday.at(lunch).do(job)
+schedule.every().tuesday.at(dinner).do(job)
 
-schedule.every().wednesday.at('12:30').do(job)
-schedule.every().wednesday.at('19:30').do(job)
+schedule.every().wednesday.at(lunch).do(job)
+schedule.every().wednesday.at(dinner).do(job)
 
-schedule.every().thursday.at('12:30').do(job)
-schedule.every().thursday.at('19:30').do(job)
+schedule.every().thursday.at(lunch).do(job)
+schedule.every().thursday.at(dinner).do(job)
 
-schedule.every().friday.at('12:30').do(job)
-schedule.every().friday.at('19:30').do(job)
+schedule.every().friday.at(lunch).do(job)
+schedule.every().friday.at(dinner).do(job)
 
-schedule.every().saturday.at('12:30').do(job)
-schedule.every().saturday.at('19:30').do(job)
-
+schedule.every().saturday.at(lunch).do(job)
+schedule.every().saturday.at(dinner).do(job)
 
 while True:
     schedule.run_pending()
 
     t = datetime.datetime.now()
+    lunch = t.replace(hour=12, minute=30, second=0, microsecond=0)
+    dinner = t.replace(hour=19, minute=30, second=0, microsecond=0)
+
     print(f'Running task scheduler: {datetime.datetime.now()}')
 
-    if int(t.hour) >= int(lunch[:2]) and int(t.hour) <= int(dinner[:2]):
-        tdelta = datetime.datetime.strptime(dinner, fmt) - datetime.datetime.strptime(f'{t.hour}:{t.minute}:00', fmt)
-        print(f'Next service is dinner in {tdelta}')
-
-    if int(t.hour) <= int(lunch[:2]) or int(t.hour) >= int(dinner[:2]):
-        tdelta = datetime.datetime.strptime(lunch, fmt) - datetime.datetime.strptime(f'{t.hour}:{t.minute}:00', fmt)
+    # Lunch delta
+    if t <= lunch and t >= dinner - datetime.timedelta(days=1):
+        tdelta = lunch - t
         print(f'Next service is lunch in {tdelta}')
+
+    # Dinner delta
+    if t >= lunch and t <= dinner:
+        tdelta = dinner - t
+        print(f'Next service is dinner in {tdelta}')
 
     time.sleep(3600)
