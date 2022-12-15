@@ -47,7 +47,7 @@ def job():
         })
 
     # Order count
-    COUNTER = random.randint(0, 5)
+    COUNTER = random.randint(1, 8)
 
     for _ in range(COUNTER):
         # Get a random available finger foods
