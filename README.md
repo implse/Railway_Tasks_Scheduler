@@ -1,3 +1,3 @@
 # Railway Tasks Scheduler
 
-Run a database operation automatically from Monday to Friday for lunch and dinner time 
+Run multiple database operations automatically from Monday to Friday during lunch and dinner times.
